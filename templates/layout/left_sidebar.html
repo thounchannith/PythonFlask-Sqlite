@@ -1,0 +1,65 @@
+<div class="leftside-menu">
+
+    <!-- Brand Logo Light -->
+    <a href="index.html" class="logo logo-light">
+                    <span class="logo-lg">
+                        <img src="{{ url_for('static', filename='assets/images/logo.png') }}" alt="logo">
+                    </span>
+        <span class="logo-sm">
+                        <img src="{{ url_for('static', filename='assets/images/logo-sm.png') }}" alt="small logo">
+                    </span>
+    </a>
+
+    <!-- Brand Logo Dark -->
+    <a href="index.html" class="logo logo-dark">
+                    <span class="logo-lg">
+                        <img src="{{ url_for('static', filename='assets/images/logo-dark.png') }}" alt="dark logo">
+                    </span>
+        <span class="logo-sm">
+                        <img src="{{ url_for('static', filename='assets/images/logo-dark-sm.png') }}" alt="small logo">
+                    </span>
+    </a>
+
+    <!-- Sidebar Hover Menu Toggle Button -->
+    <div class="button-sm-hover" data-bs-toggle="tooltip" data-bs-placement="right" title="Show Full Sidebar">
+        <i class="ri-checkbox-blank-circle-line align-middle"></i>
+    </div>
+
+    <!-- Full Sidebar Menu Close Button -->
+    <div class="button-close-fullsidebar">
+        <i class="ri-close-fill align-middle"></i>
+    </div>
+
+    <!-- Sidebar -left -->
+    <div class="h-100" id="leftside-menu-container" data-simplebar>
+        <!-- Leftbar User -->
+
+        <!--- Sidemenu -->
+        <ul class="side-nav">
+
+            <li class="side-nav-item">
+                <a href="{{ url_for('dashboard') }}" aria-expanded="false"
+                   aria-controls="sidebarDashboards" class="side-nav-link">
+                    <i class="fa fa-home"></i>
+                    <span> Dashboards </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
+                <a href="{{ url_for('users') }}" aria-expanded="false"
+                   aria-controls="sidebarDashboards" class="side-nav-link">
+                    <i class="fa fa-user-alt"></i>
+                    <span> Users </span>
+                </a>
+            </li>
+
+            {#            {% include 'layout/left_sidebar/apps.html' %}#}
+            {#            {% include 'layout/left_sidebar/customs.html' %}#}
+            {#            {% include 'layout/left_sidebar/components.html' %}#}
+
+        </ul>
+        <!--- End Sidemenu -->
+
+        <div class="clearfix"></div>
+    </div>
+</div>

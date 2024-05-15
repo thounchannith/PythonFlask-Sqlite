@@ -1,0 +1,89 @@
+{% extends 'master.html' %}
+{% block content %}
+
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    {#                    <ol class="breadcrumb m-0">#}
+                    {#                        <li class="breadcrumb-item"><a href="javascript: void(0);">Hyper</a></li>#}
+                    {#                        <li class="breadcrumb-item"><a href="javascript: void(0);">eCommerce</a></li>#}
+                    {#                        <li class="breadcrumb-item active">Products</li>#}
+                    {#                    </ol>#}
+                </div>
+                <h4 class="page-title">Users</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col-sm-5">
+                            <a href="{{ url_for('add_user') }}" class="btn btn-success mb-2">
+                                <i class="fas fa-plus-circle"></i>
+                                Add User</a>
+                        </div>
+
+                        <div class="col-sm-7">
+                            <div class="text-sm-end">
+                                {#                                <button type="button" class="btn btn-success mb-2 me-1"><i#}
+                                {#                                        class="mdi mdi-cog-outline"></i></button>#}
+                                <button type="button" class="btn btn-light mb-2 me-1">Import</button>
+                                <button type="button" class="btn btn-light mb-2">Export</button>
+                            </div>
+                        </div><!-- end col-->
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-centered w-100 dt-responsive nowrap" id="products-datatable">
+                            <thead class="table-light">
+                            <tr>
+                                <th>No.</th>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>Phone</th>
+                                <th>E-mail</th>
+                                <th>Address</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for item in data %}
+                                <tr>
+                                    <th>{{ loop.index }}</th>
+                                    <th>{{ item['name'] }}</th>
+                                    <th>{{ item['gender'] }}</th>
+                                    <th>{{ item['phone'] }}</th>
+                                    <th>{{ item['email'] }}</th>
+                                    <th>{{ item['address'] }}</th>
+                                    <th class="table-action">
+                                        <a href="/view_user?name={{ item['name'] }}&gender={{ item['gender'] }}&phone={{ item['phone'] }}&email={{ item['email'] }}&address={{ item['address'] }}"
+                                           class="action-icon">
+                                            <i class="mdi mdi-eye"></i>
+                                        </a>
+
+                                        <a href="/edit_user/{{ item['id'] }}" class="action-icon">
+                                            <i class="mdi mdi-square-edit-outline"></i>
+                                        </a>
+                                        <form action="{{ url_for('confirm_delete', user_id=item['id']) }}" method="get"
+                                              style="display:inline;">
+                                            <button type="submit" class="action-icon"
+                                                    style="border: none; background: none;">
+                                                <i class="mdi mdi-delete"></i>
+                                            </button>
+                                        </form>
+                                    </th>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <!-- end card-body-->
+            </div> <!-- end card-->
+        </div> <!-- end col -->
+    </div>
+    <!-- end row -->
+
+{% endblock %}

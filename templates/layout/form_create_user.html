@@ -1,0 +1,61 @@
+{% extends 'master.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                </div>
+                <h4 class="page-title">Create Users</h4>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <form class="needs-validation" novalidate method="post" enctype="multipart/form-data">
+                {# name #}
+                <div class="mb-3">
+                    <label class="form-label" for="validationCustom01">Username</label>
+                    <input type="text" class="form-control bg-light" id="validationCustom01" placeholder="Username"
+                           value="" name="username">
+                </div>
+                {# gender #}
+                <div class="mb-3">
+                    <label class="form-label" for="validationCustom02">Gender</label>
+                    <input type="text" class="form-control bg-light" id="validationCustom02" placeholder="Gender"
+                           value="" name="gender">
+                </div>
+                {# phone number #}
+                <div class="mb-3">
+                    <label class="form-label" for="validationCustom03">Phone</label>
+                    <input type="text" class="form-control bg-light" id="validationCustom03" placeholder="Phone"
+                           value="" name="phone">
+                </div>
+                {# email #}
+                <div class="mb-3">
+                    <label class="form-label" for="validationCustom04">Email</label>
+                    <input type="text" class="form-control bg-light" id="validationCustom04" placeholder="E-mail"
+                           value="" name="email">
+                </div>
+                {# address #}
+                <div class="mb-3">
+                    <label class="form-label" for="validationCustom05">Address</label>
+                    <input type="text" class="form-control bg-light" id="validationCustom05" placeholder="Address"
+                           value="" name="address">
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-12">
+                    <a href="{{ url_for('create_user') }}">
+                        <button class="btn btn-success" type="submit">Add</button>
+                    </a>
+
+                    <a href="{{ url_for('users') }}">
+                        <button class="btn btn-danger" type="#">Cancel</button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

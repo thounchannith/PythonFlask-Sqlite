@@ -1,0 +1,56 @@
+{% extends 'master.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                </div>
+                <h4 class="page-title">Edit Users</h4>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <form class="needs-validation" novalidate method="post">
+                <div class="mb-3">
+                    <label class="form-label" for="validationCustom01">Username</label>
+                    <input type="text" class="form-control bg-light" id="name" name="name" placeholder="Username"
+                           value="{{ data['name'] }}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="validationCustom02">Gender</label>
+                    <input type="text" class="form-control bg-light" id="gender" name="gender" placeholder="Gender"
+                           value="{{ data['gender'] }}">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="validationCustom03">Phone</label>
+                    <input type="text" class="form-control bg-light" id="phone" name="phone" placeholder="Phone"
+                           value="{{ data['phone'] }}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="validationCustom04">Email</label>
+                    <input type="text" class="form-control bg-light" id="email" name="email" placeholder="E-mail"
+                           value="{{ data['email'] }}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="validationCustom05">Address</label>
+                    <input type="text" class="form-control bg-light" id="address" name="address" placeholder="Address"
+                           value="{{ data['address'] }}">
+                </div>
+                <div class="row">
+                <div class="col-12">
+                    <a href="/">
+                        <button class="btn btn-success" type="submit">save</button>
+                    </a>
+
+                    <a href="{{ url_for('users') }}">
+                        <button class="btn btn-danger" type="#">cancel</button>
+                    </a>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

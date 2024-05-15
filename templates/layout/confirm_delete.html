@@ -1,0 +1,63 @@
+{% extends 'master.html' %}
+
+{% block content %}
+
+    <div class="col-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Confirm Delete</h4>
+        </div>
+    </div>
+    <h5 style="color: red">
+        Are you sure ?
+    </h5>
+
+    <div class="row" style="padding-top: 10px">
+        <div class="col-xl-4 col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <span class="float-start m-2">
+                         <img src="{{ url_for('static', filename='assets/images/users/no_image_male.jpg') }}"
+                              style="height: 100px;"
+                              alt="avatar-male" class="rounded-circle img-thumbnail"
+                         >
+                    </span>
+                    <div class="">
+
+                        <p class="mt-1 mb-1">{{ user_data['name'] }}</p>
+                        <p class="mt-1 mb-1">{{ user_data['gender'] }}</p>
+                        <p class="mt-1 mb-1">{{ user_data['phone'] }}</p>
+                        <p class="mt-1 mb-1">{{ user_data['email'] }}</p>
+                        <p class="mt-1 mb-1">{{ user_data['address'] }}</p>
+
+                    </div>
+                    <!-- end div-->
+                    <div class="row" style="justify-content: space-between; padding-top: 30px">
+                        <div class="col-xl-4 col-lg-12">
+                            <a href="{{ url_for('users') }} ">
+                                <form action="{{ url_for('delete_user') }}" method="post">
+                                    <input type="hidden" name="user_id" value="{{ user_data['id'] }}">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </a>
+                        </div>
+                        <div class="col-xl-4 col-lg-12">
+                            <a href="{{ url_for('users') }}">
+                                <button type="button" class="btn btn-success">
+                                    Cancel
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- end card-body-->
+            </div>
+        </div> <!-- end col -->
+
+
+    </div>
+    <!-- end row-->
+
+
+
+{% endblock %}
